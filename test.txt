@@ -1,4 +1,258 @@
-testfile 
-this is a test! (including parenthesis)
-,.;+-=?!"%$&/():'
+@import url(//db.onlinewebfonts.com/c/4aa3e37e571255737e5e6d4e9d9770a5?family=Rockwell);
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+html{
+    scroll-behavior: smooth;
+}
+.wrapper{
+    margin-left: auto;
+    margin-top: auto;
+    width: 100%;
+}
+body{
+    background-color: #222326;
+}
+.bg{
+    background: url('background.jpg');
+    position: absolute;
+    padding-right: 100%;
+    padding-bottom: 51.1%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: -2;
+    border-radius: 0 0 150px 150px;
 
+}
+#center{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+.nav-bar{
+    margin-top: 3%;
+    display: flex;
+    justify-content: space-around;
+    background-color: #0C0C0D;
+    border-radius: 50px;
+    width: 508.3px;
+    padding: 18px;
+}
+.nav-bar>a{
+    text-decoration: none;
+    font-family: 'Raleway', sans-serif;
+    color: #88898C;
+}
+.nav-bar>a>h4{
+    display: inline;
+    font-size: 22px;
+}
+
+
+.contactme-link{
+    margin-left: 3%;
+}
+
+.myworks-link{
+    margin-right: 3%;
+}
+
+.face{
+    margin-top: 8%;
+    margin-left: 180px;
+    background: url('face-bw.jpg');
+    width: 558px;
+    height: 664px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-bottom: -120px;
+    border-radius: 100px;
+}
+
+.black-box{
+    text-align: center;
+    background-color: #0C0C0D;
+    padding: 28px;
+    border-radius: 50px;
+    width: 860px;
+    margin-bottom: 500px;
+}
+
+.black-box>h1{
+    color: #D9D9D9;
+    font-size: 86.5px;
+    font-family: 'Rockwell', sans-serif;
+    letter-spacing: 12px;
+}
+
+.black-box>h4{
+    font-family: 'Rockwell', sans-serif;
+    font-size: 23px;
+    color: #3A3B40;
+    letter-spacing: 5px;
+}
+
+.whoami{
+    display: flex;
+    margin-bottom: 15%;
+}
+.whoami-img{
+    background: url('code.jpg');
+    width: 600px;
+    height: 400px;
+    transform: translateY(-100px);
+    margin-left: -90px;
+    z-index: -1;
+    border-radius: 40px;
+}
+.whoami-text,
+.skills-text{
+    background-color: #3A3B40;
+    padding: 30px;
+    width: 31%;
+    height: 25%;
+    font-family: 'Raleway', sans-serif;
+    border-radius: 30px 30px 30px 0;
+    margin-left: 20%;
+}
+.whoami-text>h2,
+.skills-text>h2,
+.myworks-text>h2,
+#contact-me h2{
+    color: #D9D9D9;
+    font-size: 58px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.whoami-text>p,
+.skills-text>p,
+.skills-rates,
+.myworks-text>p,
+label{
+    color: #88898C;
+    letter-spacing: 1px;
+    font-size: 16px;
+}
+
+.skills-bg{
+    position: absolute;
+    background: url('background2.jpg');
+    padding-right: 100%;
+    padding-bottom: 55.5%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-top: -250px;
+    z-index: -1;
+    border-radius: 150px;
+}
+
+.skills-text{
+    margin-left: 7%;
+    margin-top: 25%;
+}
+
+.skills-rates{
+    margin-top: 8%;
+    background-color: #0C0C0D;
+    width: 17%;
+    text-align: left;
+    padding: 30px;
+    border-radius: 30px 30px 0 30px;
+    margin-left: 73%;
+    font-family: 'Raleway', sans-serif;
+}
+
+.html-css h3,
+.c-sharp h3{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#my-works{
+    margin-top: 500px;
+}
+
+.myworks-text{
+    width: 30%;
+    height: 25%;
+    background-color: #3A3B40;
+    border-radius: 30px 30px 30px 0;
+    padding: 30px;
+    font-family: 'Raleway', sans-serif;
+    margin-left: 7%;
+}
+.myworks-works{
+    justify-content: flex-end;
+    display: flex;
+    margin-right: 7%;
+    margin-bottom: 30%;
+}
+.jurassic-park{
+    padding: 150px;
+    width: 0;
+    background: url('jurassic-park.jpg');
+    border-radius: 80px 80px 0 80px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    float: left;
+}
+.manage-dir{
+    padding: 150px;
+    width: 0;
+    background: url('manage-dir.png');
+    border-radius: 80px 80px 0 80px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-left: 100px;
+
+}
+
+label{
+    font-size: 30px;
+    font-family: 'Raleway', sans-serif;
+    margin-left: -390px;
+    margin-right: 100px;
+    display: block;
+    margin-top: 70px;
+}
+input[type=text],
+input[type=email],
+textarea{
+    padding: 12px 20px;
+    width: 580px;
+    box-sizing: border-box;
+    background-color: #222326;
+    border: none;
+    border-bottom: 1px solid #D9D9D9;
+    text-align: left;
+}
+.msg-label{
+    margin-left: -345px;
+}
+
+.email-label{
+    margin-left: -398px;
+}
+
+textarea{
+    height: 100px;
+    margin-bottom: 100px;
+    padding-right: 300px 220px;
+    overflow:hidden;
+    resize: none;
+}
+
+input[type=submit]{
+    background-color: #0C0C0D;
+    border-radius: 40px;
+    padding: 25px;
+    width: 30%;
+    color: #D9D9D9;
+    font-family: 'Raleway', sans-serif;
+    font-size: 28px;
+    border-style: none;
+    margin-bottom: 200px;
+}

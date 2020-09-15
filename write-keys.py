@@ -17,20 +17,54 @@ class write():
                 return True
         return False
         
-
-
-    def send_keys(self):
-        #WAIT 10 SECONDS
-        time.sleep(10)
-
+    def vs_send_keys(self):
+        letter_index = 0
+        write=''
         #WRITE THE TEXT
         for letters in self.text:
+            
+            #Adjust indentation
+            try:
+                if letters == '<':
+                    if self.text[letter_index-1] == '\n' and self.text[letter_index+1] == '/':
+                        self.wsh.SendKeys('{DELETE}')
+            except Exception as e:
+                print(str(e))
+            
+            #Select which character to write
             if letters == '\n':
                 write='{ENTER}'
             elif self.check_char(letters):  #start the special character check
                 write = '{' + letters + '}'                
+            elif letters==' ' and self.text[letter_index-1] == '\n' or letters==' ' and write=='': #fix indentation issue
+                write=''
             else:
                 write=letters
+
+            #fix auto-compleatation issue
+            try:
+                if (self.text[letter_index+1] == '\n'):
+                    write+=' {DELETE}'
+            except Exception as e:
+                print(str(e))
+
+            #actually send keys
+            self.wsh.SendKeys(write)
+            time.sleep(self.delay)
+            letter_index+=1
+
+    def send_keys(self):
+
+        #Select which character to write
+        for letters in self.text:
+            if letters == '\n':
+                write='{ENTER}'
+            elif self.check_char(letters):  #start the special character check
+                write = '{' + letters + '}'               
+            else:
+                write=letters
+
+            #actually send keys
             self.wsh.SendKeys(write)
             time.sleep(self.delay)
 
@@ -58,13 +92,36 @@ class write():
             print('Text: \n' + self.text)
 
         #INSERT DELAY BETWEEN EACH LETTER
-        print('Insert the delay you want me to use between each letter (in seconds).  After you will press enter, you\'re gonna have 10 seconds to put the cursor wherever you want me to write.')
+        print('Insert the delay you want me to use between each letter (in seconds).')
         try:
             self.delay = float(input('>>> '))
         except Exception as e:
             print('Input not valid. Error: ' + str(e))
             self.get_inputs()
 
-        self.send_keys()
+        #DO YOU WANT TO WRITE IN VS MODE?
+        print('Do you want to write it in vs code mode?(tested on html, css. It might work in other programming languages but it\'s not tested) \nImportant: If you select yes, before to start go to File>Preferences>Settings>Extensions>HTML and disable auto-closing tags\n(y/n)')
+        vs_mode=input('>>> ')
+
+
+        print('How many seconds do you need to put the cursor in the right place? (Countdown will start after you insert the seconds and press enter)')
+        wait=input('>>> ')
+
+        #wait time to make the user position the cursor
+        try:
+            time.sleep(float(wait))
+        except Exception as e:
+            print('Error: ' + str(e))
+            self.get_inputs() 
+
+        #SEND KEYS
+        if(vs_mode.lower() == 'y' or vs_mode.lower() == 'yes'):
+            self.vs_send_keys()
+        elif(vs_mode.lower() == 'n' or vs_mode.lower() == 'no'):
+            self.send_keys()
+        else:
+            print('Error: command not valid')
+            self.get_inputs()
+            
 
 a = write()
